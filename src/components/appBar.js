@@ -7,7 +7,7 @@ export function AppBar() {
   return (
     <>
       <MAppBar
-        position="relative"
+        position="fixed"
         style={{ background: 'transparent', boxShadow: 'none' }}
       >
         <Toolbar>

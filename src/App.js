@@ -4,6 +4,8 @@ import $ from 'jquery'
 import { Header } from './sections/header'
 import './App.css'
 import 'animate.css'
+import { AppBar } from './components/appBar'
+import { About } from './sections/about'
 
 export default function App() {
   useEffect(() => {
@@ -16,8 +18,10 @@ export default function App() {
   return (
     <>
       <CssBaseline />
+      <AppBar />
       <div id="fullpage">
         <Header />
+        <About />
       </div>
     </>
   )
