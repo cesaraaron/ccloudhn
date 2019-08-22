@@ -55,6 +55,7 @@ const useStyles = makeStyles({
     color: 'white',
     textAlign: 'center',
     backgroundSize: 'cover'
+    // backgroundAttachment: 'fixed'
   },
   firstSlide: {
     backgroundImage: `url('${headerImage1}')`

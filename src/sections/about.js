@@ -19,7 +19,7 @@ export function About() {
         alt="curvy lines"
       />
       <Container>
-        <Typography variant="h6">ACERCA DE NOSOTROS</Typography>
+        <Typography variant="h5">ACERCA DE NOSOTROS</Typography>
         <span className={styles.underline}></span>
         <Grid container spacing={8}>
           <Grid item sm={4} xs={12}>
@@ -66,7 +66,7 @@ export function About() {
 
 const useStyles = makeStyles(theme => ({
   about: {
-    marginTop: '120px',
+    margin: '60px 0 120px',
     position: 'relative',
     textAlign: 'center'
   },
