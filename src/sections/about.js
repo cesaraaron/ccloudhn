@@ -12,17 +12,17 @@ export function About() {
   const styles = useStyles()
 
   return (
-    <div className={`section ${styles.centeredText}`}>
+    <div className={styles.about}>
       <img
         src={CurvyLinesImage}
         className={styles.curvyLinesImage}
         alt="curvy lines"
       />
-      <Container className={styles.offsetTop}>
+      <Container>
         <Typography variant="h6">ACERCA DE NOSOTROS</Typography>
         <span className={styles.underline}></span>
         <Grid container spacing={8}>
-          <Grid item sm={4} xs={6}>
+          <Grid item sm={4} xs={12}>
             <AirplanemodeActiveIcon
               style={{ fontSize: 45, marginBottom: '20px' }}
             />
@@ -35,7 +35,7 @@ export function About() {
             </Typography>
           </Grid>
 
-          <Grid item sm={4} xs={6}>
+          <Grid item sm={4} xs={12}>
             <BuildIcon style={{ fontSize: 45, marginBottom: '20px' }} />
             <Typography variant="h6" gutterBottom>
               QUÉ ES LO QUE HACEMOS
@@ -47,7 +47,7 @@ export function About() {
             </Typography>
           </Grid>
 
-          <Grid item sm={4} xs={6}>
+          <Grid item sm={4} xs={12}>
             <VerifiedUserIcon style={{ fontSize: 45, marginBottom: '20px' }} />
 
             <Typography variant="h6" gutterBottom>
@@ -65,11 +65,9 @@ export function About() {
 }
 
 const useStyles = makeStyles(theme => ({
-  offsetTop: {
-    marginTop: '-120px'
-  },
-  centeredText: {
-    // marginTop: '-100px',
+  about: {
+    marginTop: '120px',
+    position: 'relative',
     textAlign: 'center'
   },
   gutterBottom: {
@@ -83,7 +81,9 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   curvyLinesImage: {
-    top: '-180px',
+    maxWidth: '100vw',
+    maxHeight: '100vh',
+    top: '-120px',
     left: '-30px',
     position: 'absolute',
     pointerEvents: 'none'
