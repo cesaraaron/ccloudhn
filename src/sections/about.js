@@ -70,9 +70,6 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     textAlign: 'center'
   },
-  gutterBottom: {
-    marginBottom: '50px'
-  },
   underline: {
     width: '55px',
     height: '4px',
