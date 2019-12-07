@@ -5,6 +5,7 @@ import { AppBar } from './components/appBar'
 import { About } from './sections/about'
 import { Services } from './sections/services'
 import { Clients } from './sections/clients'
+import { Contact } from './sections/contact'
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <About />
       <Services />
       <Clients />
+      <Contact />
     </>
   )
 }
