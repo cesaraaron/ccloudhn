@@ -12,7 +12,7 @@ export function About() {
   const styles = useStyles()
 
   return (
-    <div className={styles.about}>
+    <div id="about" className={styles.about}>
       <img
         src={CurvyLinesImage}
         className={styles.curvyLinesImage}

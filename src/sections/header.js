@@ -13,7 +13,7 @@ export function Header() {
     <div className={section}>
       <Carousel enableKeyboardControls>
         <div className={slide + ' ' + firstSlide}>
-          <Container>
+          <Container maxWidth="md">
             <Typography variant="h3" gutterBottom>
               Ccloud servicios en la nube
             </Typography>
@@ -25,7 +25,7 @@ export function Header() {
           </Container>
         </div>
         <div className={slide + ' ' + secondSlide}>
-          <Container>
+          <Container maxWidth="md">
             <Typography variant="h3" gutterBottom>
               Desarrollo personalizado
             </Typography>
@@ -54,7 +54,8 @@ const useStyles = makeStyles({
     minWidth: '100vw',
     color: 'white',
     textAlign: 'center',
-    backgroundSize: 'cover'
+    backgroundSize: 'cover',
+    textShadow: '2px 2px 3px #222'
     // backgroundAttachment: 'fixed'
   },
   firstSlide: {

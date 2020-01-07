@@ -18,7 +18,7 @@ export function Clients() {
   const isBreakPointDownSm = useMediaQuery(theme.breakpoints.down('sm'))
 
   return (
-    <div className={styles.clients}>
+    <div id="clients" className={styles.clients}>
       <Container>
         <Typography variant="h5" gutterBottom>
           NUESTROS CLIENTES

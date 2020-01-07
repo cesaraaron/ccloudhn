@@ -13,22 +13,15 @@ import Hidden from '@material-ui/core/Hidden'
 export function Contact() {
   const classes = useStyles()
   return (
-    <div className={classes.contact}>
+    <div id="contact" className={classes.contact}>
       <Container maxWidth="md">
         <Typography variant="h5" gutterBottom>
           CONTÁCTENOS
         </Typography>
         <Typography variant="subtitle1" color="textSecondary">
           <Box>
-            Escribanos a{' '}
-            <a
-              href="mailto:support@ccloud.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              support@ccloud.com
-            </a>{' '}
-            o envienos un mensaje en el siguiente foro:
+            Escribanos a<strong>support@ccloud.com</strong>o envienos un mensaje
+            en el siguiente foro.
           </Box>
         </Typography>
         <span className={classes.underline}></span>

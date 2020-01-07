@@ -17,7 +17,7 @@ export function Services() {
   const styles = useStyles()
 
   return (
-    <div className={styles.services}>
+    <div id="services" className={styles.services}>
       <Container>
         <Typography variant="h5" gutterBottom>
           LO QUE PODEMOS OFRECER
