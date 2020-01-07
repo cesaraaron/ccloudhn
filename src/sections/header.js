@@ -40,12 +40,13 @@ export function Header() {
   )
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(t => ({
   section: {
     position: 'relative',
     top: '-64px',
     minHeight: '100vh',
-    minWidth: '100vw'
+    minWidth: '100vw',
+    backgroundColor: t.palette.primary.dark
   },
   slide: {
     display: 'flex',
@@ -70,4 +71,4 @@ const useStyles = makeStyles({
   marginTop: {
     marginTop: '15px'
   }
-})
+}))
