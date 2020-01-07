@@ -1,17 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
-import Carousel from 'nuka-carousel'
 import headerImage1 from '../images/header-1.jpg'
 import headerImage2 from '../images/header-2.jpg'
+import Flickity from 'flickity'
+import './header.css'
 
 export function Header() {
   const { section, slide, firstSlide, secondSlide } = useStyles()
 
+  useEffect(() => {
+    var elem = document.querySelector('.header-carousel')
+    new Flickity(elem, {
+      prevNextButtons: false,
+      autoPlay: true,
+      draggable: true,
+      contain: true
+    })
+  })
+
   return (
     <div className={section}>
-      <Carousel enableKeyboardControls>
+      <div className="carousel header-carousel">
         <div className={slide + ' ' + firstSlide}>
           <Container maxWidth="md">
             <Typography variant="h3" gutterBottom>
@@ -35,7 +46,7 @@ export function Header() {
             </Typography>
           </Container>
         </div>
-      </Carousel>
+      </div>
     </div>
   )
 }
@@ -44,8 +55,8 @@ const useStyles = makeStyles(t => ({
   section: {
     position: 'relative',
     top: '-64px',
-    minHeight: '100vh',
-    minWidth: '100vw',
+    // minHeight: '100vh',
+    // minWidth: '100vw',
     backgroundColor: t.palette.primary.dark
   },
   slide: {

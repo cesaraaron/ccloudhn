@@ -1,9 +1,7 @@
-import React from 'react'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
+import React, { useEffect } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
-import Carousel from 'nuka-carousel'
 import bancoAztecaLogo from '../images/clients-banco-azteca.png'
 import cocaColaLogo from '../images/clients-coca-cola.png'
 import claroLogo from '../images/clients-claro.png'
@@ -11,11 +9,22 @@ import jetstereoLogo from '../images/clients-jetstereo.png'
 import ultramotorLogo from '../images/clients-ultramotor.png'
 import unitecLogo from '../images/clients-unitec.png'
 import walmartLogo from '../images/clients-walmart.png'
+import Flickity from 'flickity'
 
 export function Clients() {
   const styles = useStyles()
-  const theme = useTheme()
-  const isBreakPointDownSm = useMediaQuery(theme.breakpoints.down('sm'))
+
+  useEffect(() => {
+    var elem = document.querySelector('.clients-carousel')
+    new Flickity(elem, {
+      prevNextButtons: false,
+      autoPlay: 2000,
+      draggable: true,
+      contain: true,
+      imagesLoaded: true,
+      wrapAround: true
+    })
+  })
 
   return (
     <div id="clients" className={styles.clients}>
@@ -29,23 +38,43 @@ export function Clients() {
         </Typography>
         <span className={styles.underline}></span>
         <div className={styles.carouselContainer}>
-          <Carousel
-            autoplay
-            dragging
-            slidesToShow={isBreakPointDownSm ? 3 : 6}
-            slidesToScroll={1}
-            pauseOnHover={false}
-            wrapAround
-          >
-            <img src={unitecLogo} alt="Logo de unitec" />
-            <img src={cocaColaLogo} alt="Logo de la coca cola" />
-            <img src={bancoAztecaLogo} alt="Logo de banco azteca" />
-
-            <img src={claroLogo} alt="Logo de claro" />
-            <img src={walmartLogo} alt="Logo de walmart" />
-            <img src={jetstereoLogo} alt="Logo de jetstereo" />
-            <img src={ultramotorLogo} alt="Logo de yamaha" />
-          </Carousel>
+          <div className="clients-carousel">
+            <img
+              className={styles.carouselImage}
+              src={unitecLogo}
+              alt="Logo de unitec"
+            />
+            <img
+              className={styles.carouselImage}
+              src={cocaColaLogo}
+              alt="Logo de la coca cola"
+            />
+            <img
+              className={styles.carouselImage}
+              src={bancoAztecaLogo}
+              alt="Logo de banco azteca"
+            />
+            <img
+              className={styles.carouselImage}
+              src={claroLogo}
+              alt="Logo de claro"
+            />
+            <img
+              className={styles.carouselImage}
+              src={walmartLogo}
+              alt="Logo de walmart"
+            />
+            <img
+              className={styles.carouselImage}
+              src={jetstereoLogo}
+              alt="Logo de jetstereo"
+            />
+            <img
+              className={styles.carouselImage}
+              src={ultramotorLogo}
+              alt="Logo de yamaha"
+            />
+          </div>
         </div>
       </Container>
     </div>
@@ -58,6 +87,7 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     textAlign: 'center'
   },
+
   underline: {
     width: '55px',
     height: '4px',
@@ -66,6 +96,19 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   carouselContainer: {
-    // display: 'flex'
+    // minHeight: '300px',
+    // minWidth: '100%'
+  },
+  carouselImage: {
+    display: 'block',
+    height: '100px',
+    /* set min-width,
+     allow images to determine cell width */
+    // maxWidth: '150px',
+    // maxWidth: '150px',
+    marginRight: '10px',
+    /* vertically center */
+    top: '50%',
+    transform: 'translateY(-50%)'
   }
 }))
