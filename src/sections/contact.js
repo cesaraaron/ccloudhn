@@ -20,8 +20,8 @@ export function Contact() {
         </Typography>
         <Typography variant="subtitle1" color="textSecondary">
           <Box>
-            Escribanos a<strong>support@ccloud.com</strong>o envienos un mensaje
-            en el siguiente foro.
+            Escribanos a <strong>support@ccloud.com</strong> o envienos un
+            mensaje en el siguiente foro.
           </Box>
         </Typography>
         <span className={classes.underline}></span>
@@ -80,22 +80,22 @@ export function Contact() {
 const useStyles = makeStyles(theme => ({
   form: {
     display: 'flex',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   contact: {
     padding: '200px 0 120px',
     position: 'relative',
     textAlign: 'center',
-    backgroundColor: '#f5f5f5'
+    backgroundColor: '#f5f5f5',
   },
   underline: {
     width: '55px',
     height: '4px',
     margin: '35px auto 50px',
     display: 'block',
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
   },
   carouselContainer: {
     // display: 'flex'
-  }
+  },
 }))

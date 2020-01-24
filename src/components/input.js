@@ -4,8 +4,8 @@ import { fade, withStyles } from '@material-ui/core/styles'
 export default withStyles(theme => ({
   root: {
     'label + &': {
-      marginTop: theme.spacing(3)
-    }
+      marginTop: theme.spacing(3),
+    },
   },
   input: {
     borderRadius: 4,
@@ -27,11 +27,11 @@ export default withStyles(theme => ({
       'sans-serif',
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"'
+      '"Segoe UI Symbol"',
     ].join(','),
     '&:focus': {
       boxShadow: `${fade(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
-      borderColor: theme.palette.primary.main
-    }
-  }
+      borderColor: theme.palette.primary.main,
+    },
+  },
 }))(InputBase)

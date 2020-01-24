@@ -170,19 +170,19 @@ export function Services() {
 const useStyles = makeStyles(theme => ({
   services: {
     backgroundColor: '#f5f5f5',
-    margin: '120px 0',
+    // margin: '120px 0',
     paddingTop: '80px',
     position: 'relative',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   underline: {
     width: '55px',
     height: '4px',
     margin: '35px auto 50px',
     display: 'block',
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
   },
   icon: {
-    fontSize: '54px'
-  }
+    fontSize: '54px',
+  },
 }))

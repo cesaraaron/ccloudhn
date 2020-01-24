@@ -2,13 +2,13 @@ import React, { useEffect } from 'react'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
-import headerImage1 from '../images/header-1.jpg'
-import headerImage2 from '../images/header-2.jpg'
 import Flickity from 'flickity'
 import './header.css'
+import { graphql, useStaticQuery } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
 
 export function Header() {
-  const { section, slide, firstSlide, secondSlide } = useStyles()
+  const classes = useStyles()
 
   useEffect(() => {
     var elem = document.querySelector('.header-carousel')
@@ -16,14 +16,38 @@ export function Header() {
       prevNextButtons: false,
       autoPlay: true,
       draggable: true,
-      contain: true
+      contain: true,
     })
   })
 
+  const { header1, header2 } = useStaticQuery(
+    graphql`
+      query {
+        header1: file(relativePath: { eq: "header-1.jpg" }) {
+          childImageSharp {
+            fluid(quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        header2: file(relativePath: { eq: "header-2.jpg" }) {
+          childImageSharp {
+            fluid(quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    `
+  )
+
+  const header1Fluid = header1.childImageSharp.fluid
+  const header2Fluid = header2.childImageSharp.fluid
+
   return (
-    <div className={section}>
+    <div className={classes.section}>
       <div className="carousel header-carousel">
-        <div className={slide + ' ' + firstSlide}>
+        <BackgroundImage className={classes.slide} fluid={header1Fluid}>
           <Container maxWidth="md">
             <Typography variant="h3" gutterBottom>
               Ccloud servicios en la nube
@@ -34,8 +58,8 @@ export function Header() {
               proveer soluciones de software en orden de ayudar tu negocio.
             </Typography>
           </Container>
-        </div>
-        <div className={slide + ' ' + secondSlide}>
+        </BackgroundImage>
+        <BackgroundImage className={classes.slide} fluid={header2Fluid}>
           <Container maxWidth="md">
             <Typography variant="h3" gutterBottom>
               Desarrollo personalizado
@@ -45,7 +69,7 @@ export function Header() {
               linux & mac.
             </Typography>
           </Container>
-        </div>
+        </BackgroundImage>
       </div>
     </div>
   )
@@ -57,7 +81,7 @@ const useStyles = makeStyles(t => ({
     top: '-64px',
     // minHeight: '100vh',
     // minWidth: '100vw',
-    backgroundColor: t.palette.primary.dark
+    backgroundColor: t.palette.primary.dark,
   },
   slide: {
     display: 'flex',
@@ -67,19 +91,10 @@ const useStyles = makeStyles(t => ({
     color: 'white',
     textAlign: 'center',
     backgroundSize: 'cover',
-    textShadow: '2px 2px 3px #222'
+    textShadow: '2px 2px 3px #222',
     // backgroundAttachment: 'fixed'
   },
-  firstSlide: {
-    backgroundImage: `url('${headerImage1}')`
-  },
-  secondSlide: {
-    backgroundImage: `url('${headerImage2}')`
-  },
   textShadow: {
-    textShadow: '2px 2px 3px #222'
+    textShadow: '2px 2px 3px #222',
   },
-  marginTop: {
-    marginTop: '15px'
-  }
 }))

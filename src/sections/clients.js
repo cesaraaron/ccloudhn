@@ -2,14 +2,9 @@ import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
-import bancoAztecaLogo from '../images/clients-banco-azteca.png'
-import cocaColaLogo from '../images/clients-coca-cola.png'
-import claroLogo from '../images/clients-claro.png'
-import jetstereoLogo from '../images/clients-jetstereo.png'
-import ultramotorLogo from '../images/clients-ultramotor.png'
-import unitecLogo from '../images/clients-unitec.png'
-import walmartLogo from '../images/clients-walmart.png'
 import Flickity from 'flickity'
+import { graphql, useStaticQuery } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
 
 export function Clients() {
   const styles = useStyles()
@@ -22,9 +17,27 @@ export function Clients() {
       draggable: true,
       contain: true,
       imagesLoaded: true,
-      wrapAround: true
+      wrapAround: true,
     })
   })
+
+  const {
+    bancoAztecaImage,
+    cocaColaImage,
+    claroImage,
+    jetstereoImage,
+    ultramotorImage,
+    unitecImage,
+    walmartImage,
+  } = useStaticQuery(clientsImagesQuery)
+
+  const bancoAztecaImageFluid = bancoAztecaImage.childImageSharp.fluid
+  const cocaColaImageFluid = cocaColaImage.childImageSharp.fluid
+  const claroImageFluid = claroImage.childImageSharp.fluid
+  const jetstereoImageFluid = jetstereoImage.childImageSharp.fluid
+  const ultramotorImageFluid = ultramotorImage.childImageSharp.fluid
+  const unitecImageFluid = unitecImage.childImageSharp.fluid
+  const walmartImageFluid = walmartImage.childImageSharp.fluid
 
   return (
     <div id="clients" className={styles.clients}>
@@ -39,39 +52,39 @@ export function Clients() {
         <span className={styles.underline}></span>
         <div className={styles.carouselContainer}>
           <div className="clients-carousel">
-            <img
+            <BackgroundImage
               className={styles.carouselImage}
-              src={unitecLogo}
+              fluid={unitecImageFluid}
               alt="Logo de unitec"
             />
-            <img
+            <BackgroundImage
               className={styles.carouselImage}
-              src={cocaColaLogo}
+              fluid={cocaColaImageFluid}
               alt="Logo de la coca cola"
             />
-            <img
+            <BackgroundImage
               className={styles.carouselImage}
-              src={bancoAztecaLogo}
+              fluid={bancoAztecaImageFluid}
               alt="Logo de banco azteca"
             />
-            <img
+            <BackgroundImage
               className={styles.carouselImage}
-              src={claroLogo}
+              fluid={claroImageFluid}
               alt="Logo de claro"
             />
-            <img
+            <BackgroundImage
               className={styles.carouselImage}
-              src={walmartLogo}
+              fluid={walmartImageFluid}
               alt="Logo de walmart"
             />
-            <img
+            <BackgroundImage
               className={styles.carouselImage}
-              src={jetstereoLogo}
+              fluid={jetstereoImageFluid}
               alt="Logo de jetstereo"
             />
-            <img
+            <BackgroundImage
               className={styles.carouselImage}
-              src={ultramotorLogo}
+              fluid={ultramotorImageFluid}
               alt="Logo de yamaha"
             />
           </div>
@@ -85,7 +98,7 @@ const useStyles = makeStyles(theme => ({
   clients: {
     margin: '60px 0 120px',
     position: 'relative',
-    textAlign: 'center'
+    textAlign: 'center',
   },
 
   underline: {
@@ -93,22 +106,81 @@ const useStyles = makeStyles(theme => ({
     height: '4px',
     margin: '35px auto 50px',
     display: 'block',
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
   },
   carouselContainer: {
     // minHeight: '300px',
     // minWidth: '100%'
   },
   carouselImage: {
-    display: 'block',
+    // display: 'block',
     height: '100px',
+    width: '150px',
+    backgroundSize: 'contain',
     /* set min-width,
      allow images to determine cell width */
     // maxWidth: '150px',
     // maxWidth: '150px',
     marginRight: '10px',
     /* vertically center */
-    top: '50%',
-    transform: 'translateY(-50%)'
-  }
+    // top: '50%',
+    // transform: 'translateY(-50%)',
+  },
 }))
+
+const clientsImagesQuery = graphql`
+  query {
+    bancoAztecaImage: file(relativePath: { eq: "clients-banco-azteca.png" }) {
+      childImageSharp {
+        fluid(quality: 70) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+
+    cocaColaImage: file(relativePath: { eq: "clients-coca-cola.png" }) {
+      childImageSharp {
+        fluid(quality: 70) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+
+    claroImage: file(relativePath: { eq: "clients-claro.png" }) {
+      childImageSharp {
+        fluid(quality: 70) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+
+    jetstereoImage: file(relativePath: { eq: "clients-jetstereo.png" }) {
+      childImageSharp {
+        fluid(quality: 70) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    ultramotorImage: file(relativePath: { eq: "clients-ultramotor.png" }) {
+      childImageSharp {
+        fluid(quality: 70) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    unitecImage: file(relativePath: { eq: "clients-unitec.png" }) {
+      childImageSharp {
+        fluid(quality: 70) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    walmartImage: file(relativePath: { eq: "clients-walmart.png" }) {
+      childImageSharp {
+        fluid(quality: 70) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+  }
+`

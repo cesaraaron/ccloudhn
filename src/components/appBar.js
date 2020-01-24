@@ -19,12 +19,12 @@ import MenuIcon from '@material-ui/icons/Menu'
 
 const useStyles = makeStyles({
   list: {
-    width: 'auto'
+    width: 'auto',
   },
   appBar: {
     background: '#0002',
-    boxShadow: 'none'
-  }
+    boxShadow: 'none',
+  },
 })
 
 export function AppBar() {
