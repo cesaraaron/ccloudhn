@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MAppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import { useTheme } from '@material-ui/core/styles'
+import Drawer from '@material-ui/core/Drawer'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+// import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
+// import InfoIcon from '@material-ui/icons/Info'
+// import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle'
+// import BuildIcon from '@material-ui/icons/Build';
 
 const useStyles = makeStyles({
+  list: {
+    width: 'auto'
+  },
   appBar: {
     background: '#0002',
     boxShadow: 'none'
@@ -13,28 +28,81 @@ const useStyles = makeStyles({
 })
 
 export function AppBar() {
-  const styles = useStyles()
+  const classes = useStyles()
+  const theme = useTheme()
+  const isSmallScreenAndDown = useMediaQuery(theme.breakpoints.down('sm'))
+  const [isDrawerVisible, setDrawerVisibility] = useState(false)
+
+  const toggleDrawer = visibility => event => {
+    if (
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
+      return
+    }
+
+    setDrawerVisibility(visibility)
+  }
+
   return (
     <>
-      <MAppBar className={styles.appBar} position="relative">
+      <MAppBar className={classes.appBar} position="relative">
         <Toolbar>
-          <Typography variant="h6" style={{ flexGrow: 1 }}>
-            ccloudhn
-          </Typography>
-          <Button color="inherit" onClick={() => scrollPageTo('#about')}>
-            Acerca de nosotros
-          </Button>
-          <Button color="inherit" onClick={() => scrollPageTo('#services')}>
-            Lo que hacemos
-          </Button>
-          <Button color="inherit" onClick={() => scrollPageTo('#clients')}>
-            Clientes
-          </Button>
-          <Button color="inherit" onClick={() => scrollPageTo('#contact')}>
-            Contactenos
-          </Button>
+          {isSmallScreenAndDown ? (
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={toggleDrawer(true)}
+              edge="start"
+            >
+              <MenuIcon />
+            </IconButton>
+          ) : (
+            <>
+              <Typography variant="h6" style={{ flexGrow: 1 }}>
+                ccloudhn
+              </Typography>
+              <Button color="inherit" onClick={() => scrollPageTo('#about')}>
+                Acerca de nosotros
+              </Button>
+              <Button color="inherit" onClick={() => scrollPageTo('#services')}>
+                Lo que hacemos
+              </Button>
+              <Button color="inherit" onClick={() => scrollPageTo('#clients')}>
+                Clientes
+              </Button>
+              <Button color="inherit" onClick={() => scrollPageTo('#contact')}>
+                Contactenos
+              </Button>
+            </>
+          )}
         </Toolbar>
       </MAppBar>
+      <Drawer anchor="top" open={isDrawerVisible} onClose={toggleDrawer(false)}>
+        <div
+          className={classes.list}
+          role="presentation"
+          onClick={toggleDrawer(false)}
+        >
+          <List>
+            <ListItem button onClick={() => scrollPageTo('#about')}>
+              <ListItemText primary="Acerca de nosotros" />
+            </ListItem>
+
+            <ListItem button onClick={() => scrollPageTo('#services')}>
+              <ListItemText primary="Lo que hacemos" />
+            </ListItem>
+
+            <ListItem button onClick={() => scrollPageTo('#clients')}>
+              <ListItemText primary="Clientes" />
+            </ListItem>
+
+            <ListItem button onClick={() => scrollPageTo('#contact')}>
+              <ListItemText primary="Contactenos" />
+            </ListItem>
+          </List>
+        </div>
+      </Drawer>
     </>
   )
 }
