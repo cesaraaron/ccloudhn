@@ -49,11 +49,11 @@ export function Header() {
       <div className="carousel header-carousel">
         <BackgroundImage className={classes.slide} fluid={header1Fluid}>
           <Container maxWidth="md">
-            <Typography variant="h3" gutterBottom>
+            <Typography variant="h4" gutterBottom>
               Ccloud servicios en la nube
             </Typography>
 
-            <Typography variant="h5">
+            <Typography variant="h6">
               Somos una innovadora compañia de servicios en la nube, enfocada en
               proveer soluciones de software en orden de ayudar tu negocio.
             </Typography>
@@ -61,10 +61,10 @@ export function Header() {
         </BackgroundImage>
         <BackgroundImage className={classes.slide} fluid={header2Fluid}>
           <Container maxWidth="md">
-            <Typography variant="h3" gutterBottom>
+            <Typography variant="h4" gutterBottom>
               Desarrollo personalizado
             </Typography>
-            <Typography variant="h5">
+            <Typography variant="h6">
               Aplicaciones personalizadas para la web, iphone, android, windows,
               linux & mac.
             </Typography>
@@ -91,10 +91,10 @@ const useStyles = makeStyles(t => ({
     color: 'white',
     textAlign: 'center',
     backgroundSize: 'cover',
-    textShadow: '2px 2px 3px #222',
+    textShadow: '1px 1px 2px #222',
     // backgroundAttachment: 'fixed'
   },
   textShadow: {
-    textShadow: '2px 2px 3px #222',
+    textShadow: '1px 1px 2px #2223',
   },
 }))
