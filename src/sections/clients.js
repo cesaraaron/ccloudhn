@@ -24,20 +24,20 @@ export function Clients() {
   const {
     bancoAztecaImage,
     cocaColaImage,
-    claroImage,
-    jetstereoImage,
     ultramotorImage,
     unitecImage,
     walmartImage,
+    microsoftImage,
+    paypalImage,
   } = useStaticQuery(clientsImagesQuery)
 
   const bancoAztecaImageFluid = bancoAztecaImage.childImageSharp.fluid
   const cocaColaImageFluid = cocaColaImage.childImageSharp.fluid
-  const claroImageFluid = claroImage.childImageSharp.fluid
-  const jetstereoImageFluid = jetstereoImage.childImageSharp.fluid
   const ultramotorImageFluid = ultramotorImage.childImageSharp.fluid
   const unitecImageFluid = unitecImage.childImageSharp.fluid
   const walmartImageFluid = walmartImage.childImageSharp.fluid
+  const microsoftImageFluid = microsoftImage.childImageSharp.fluid
+  const paypalImageFluid = paypalImage.childImageSharp.fluid
 
   return (
     <div id="clients" className={styles.clients}>
@@ -59,29 +59,48 @@ export function Clients() {
             />
             <BackgroundImage
               className={styles.carouselImage}
-              fluid={cocaColaImageFluid}
-              alt="Logo de la coca cola"
-            />
-            <BackgroundImage
-              className={styles.carouselImage}
               fluid={bancoAztecaImageFluid}
               alt="Logo de banco azteca"
             />
             <BackgroundImage
               className={styles.carouselImage}
-              fluid={claroImageFluid}
-              alt="Logo de claro"
+              fluid={cocaColaImageFluid}
+              alt="Logo de la coca cola"
             />
+            <BackgroundImage
+              className={styles.carouselImage}
+              fluid={paypalImageFluid}
+              alt="Logo de paypal"
+            />
+            <BackgroundImage
+              className={styles.carouselImage}
+              fluid={microsoftImageFluid}
+              alt="Logo de microsoft"
+            />
+            {/* <BackgroundImage
+              className={styles.carouselImage}
+              fluid={nikeImageFluid}
+              alt="Logo de nike"
+            /> */}
+
             <BackgroundImage
               className={styles.carouselImage}
               fluid={walmartImageFluid}
               alt="Logo de walmart"
             />
-            <BackgroundImage
+
+            {/* <BackgroundImage
+              className={styles.carouselImage}
+              fluid={claroImageFluid}
+              alt="Logo de claro"
+            /> */}
+
+            {/* <BackgroundImage
               className={styles.carouselImage}
               fluid={jetstereoImageFluid}
               alt="Logo de jetstereo"
-            />
+            /> */}
+
             <BackgroundImage
               className={styles.carouselImage}
               fluid={ultramotorImageFluid}
@@ -108,23 +127,11 @@ const useStyles = makeStyles(theme => ({
     display: 'block',
     backgroundColor: theme.palette.secondary.main,
   },
-  carouselContainer: {
-    // minHeight: '300px',
-    // minWidth: '100%'
-  },
   carouselImage: {
-    // display: 'block',
     height: '100px',
     width: '150px',
     backgroundSize: 'contain',
-    /* set min-width,
-     allow images to determine cell width */
-    // maxWidth: '150px',
-    // maxWidth: '150px',
     marginRight: '10px',
-    /* vertically center */
-    // top: '50%',
-    // transform: 'translateY(-50%)',
   },
 }))
 
@@ -146,21 +153,6 @@ const clientsImagesQuery = graphql`
       }
     }
 
-    claroImage: file(relativePath: { eq: "clients-claro.png" }) {
-      childImageSharp {
-        fluid(quality: 70) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
-
-    jetstereoImage: file(relativePath: { eq: "clients-jetstereo.png" }) {
-      childImageSharp {
-        fluid(quality: 70) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
     ultramotorImage: file(relativePath: { eq: "clients-ultramotor.png" }) {
       childImageSharp {
         fluid(quality: 70) {
@@ -176,6 +168,20 @@ const clientsImagesQuery = graphql`
       }
     }
     walmartImage: file(relativePath: { eq: "clients-walmart.png" }) {
+      childImageSharp {
+        fluid(quality: 70) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    microsoftImage: file(relativePath: { eq: "clients-microsoft.png" }) {
+      childImageSharp {
+        fluid(quality: 70) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    paypalImage: file(relativePath: { eq: "clients-paypal.png" }) {
       childImageSharp {
         fluid(quality: 70) {
           ...GatsbyImageSharpFluid_withWebp
