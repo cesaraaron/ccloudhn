@@ -29,6 +29,7 @@ export function Contact({ db }) {
   }
 
   const { register, errors, handleSubmit, reset } = useForm()
+
   const onSubmit = data => {
     db.collection('clients')
       .add(data)
@@ -64,7 +65,7 @@ export function Contact({ db }) {
         </Typography>
         <span className={classes.underline}></span>
         {/* <form className={classes.form} noValidate autoComplete="off"> */}
-        <form onSubmit={handleSubmit(onSubmit)} noValidate>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container>
             <Grid item xs={2} mdUp implementation="css" component={Hidden} />
             <Grid
