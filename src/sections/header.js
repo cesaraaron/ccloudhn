@@ -14,7 +14,7 @@ export function Header() {
     var elem = document.querySelector('.header-carousel')
     new Flickity(elem, {
       prevNextButtons: false,
-      autoPlay: true,
+      autoPlay: 5000,
       draggable: true,
       contain: true,
     })

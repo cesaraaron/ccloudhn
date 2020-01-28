@@ -88,9 +88,9 @@ const useStyles = makeStyles(theme => ({
   about: {
     position: 'relative',
     // top: '64px',
-    padding: '60px 0 120px',
+    padding: '60px 0 60px',
     textAlign: 'center',
-    marginBottom: '30px',
+    marginBottom: '50px',
   },
   underline: {
     width: '55px',

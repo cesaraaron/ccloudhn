@@ -171,7 +171,7 @@ const useStyles = makeStyles(theme => ({
   services: {
     backgroundColor: '#f5f5f5',
     // margin: '120px 0',
-    paddingTop: '80px',
+    paddingTop: '100px',
     position: 'relative',
     textAlign: 'center',
   },
