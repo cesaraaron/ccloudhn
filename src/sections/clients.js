@@ -16,7 +16,6 @@ export function Clients() {
       autoPlay: 2000,
       draggable: true,
       contain: true,
-      imagesLoaded: true,
       wrapAround: true,
     })
   })

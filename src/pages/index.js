@@ -1,5 +1,4 @@
 import React from 'react'
-import 'flickity-imagesloaded'
 import 'flickity/css/flickity.css'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { AppBar } from '../components/appBar'
