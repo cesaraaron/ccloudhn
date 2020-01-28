@@ -67,15 +67,23 @@ export function Contact({ db }) {
         {/* <form className={classes.form} noValidate autoComplete="off"> */}
         <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container>
-            <Grid item xs={2} mdUp implementation="css" component={Hidden} />
+            <Grid
+              item
+              xs={1}
+              md={1}
+              lgUp
+              implementation="css"
+              component={Hidden}
+            />
             <Grid
               container
               item
-              xs={8}
-              md={12}
+              xs={10}
+              md={10}
               spacing={2}
               alignItems="stretch"
             >
+              {/* <Grid item md={2} /> */}
               <Grid item md={4} xs={12}>
                 <FormControl fullWidth>
                   <TextField

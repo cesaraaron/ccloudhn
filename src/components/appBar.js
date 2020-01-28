@@ -94,7 +94,7 @@ export function AppBar() {
             </ListItem>
 
             <ListItem button onClick={() => scrollPageTo('#clients')}>
-              <ListItemText primary="Clientes" />
+              <ListItemText primary="Nuestros clientes" />
             </ListItem>
 
             <ListItem button onClick={() => scrollPageTo('#contact')}>

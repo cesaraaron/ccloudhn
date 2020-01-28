@@ -90,6 +90,7 @@ const useStyles = makeStyles(theme => ({
     // top: '64px',
     padding: '60px 0 120px',
     textAlign: 'center',
+    marginBottom: '30px',
   },
   underline: {
     width: '55px',
