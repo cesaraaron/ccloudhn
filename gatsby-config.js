@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Ccloudhn | Home`,
+    title: `Ccloudhn`,
     description: `Somos una innovadora compañia de servicios en la nube, enfocada en
     proveer soluciones de software en orden de ayudar tu negocio.`,
     author: `Cesar Aaron`,

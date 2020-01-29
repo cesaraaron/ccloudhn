@@ -40,7 +40,7 @@ export function Header() {
 
         header3: file(relativePath: { eq: "header-3.jpg" }) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 800) {
+            fluid(quality: 100, maxWidth: 900) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }

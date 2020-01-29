@@ -3,21 +3,25 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'gatsby'
+import SEO from '../components/seo'
 
 const NotFoundPage = () => {
   const styles = useStyles()
 
   return (
-    <div className={styles.root}>
-      <CssBaseline />
-      <Typography variant="h1">404</Typography>
-      <div>
-        <Typography variant="body2">
-          La pagina que andas buscando no existe,{' '}
-          <Link to="/">regresa a la pagina principal</Link>
-        </Typography>
+    <>
+      <SEO title="404 | Pagina no encontrada" />
+      <div className={styles.root}>
+        <CssBaseline />
+        <Typography variant="h1">404</Typography>
+        <div>
+          <Typography variant="body2">
+            La pagina que andas buscando no existe,{' '}
+            <Link to="/">regresa a la pagina principal</Link>
+          </Typography>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

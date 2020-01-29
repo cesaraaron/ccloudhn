@@ -10,6 +10,7 @@ import { Contact } from '../sections/contact'
 
 import firebase from 'firebase/app'
 import 'firebase/firestore'
+import SEO from '../components/seo'
 
 var firebaseConfig = {
   apiKey: 'AIzaSyAl_tuuxyV6wpuKrd1qs20I__yrvGaUAYM',
@@ -27,6 +28,7 @@ const IndexPage = () => {
   const db = firebase.firestore()
   return (
     <>
+      <SEO title="Inicio | ccloud" />
       <CssBaseline />
       <AppBar />
       <Header />
