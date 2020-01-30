@@ -59,7 +59,7 @@ export function Contact({ db }) {
         </Typography>
         <Typography variant="subtitle1" color="textSecondary">
           <Box>
-            Escribanos a <strong>ventas@ccloud.com</strong> o envienos un
+            Escribanos a <strong>ventas@ccloudhn.com</strong> o envienos un
             mensaje en el siguiente foro.
           </Box>
         </Typography>
